@@ -65,7 +65,7 @@ public class Processor {
 //        String cassandraIp = getPropValues("cassandra-ip");
 //        String keyspace = getPropValues("cassandra-keyspace");
 
-        String mongoIp = (System.getenv("MONGODB_SERVICE_HOST")== null) ? getPropValues("mongo-ip") : System.getenv("MONGODB_SERVICE_HOST"); ;
+        String mongoIp = (System.getenv("MONGODB_SERVICE_HOST")== null) ? getPropValues("mongo-ip") : System.getenv("MONGODB_SERVICE_HOST");
 //
 //        cluster = Cluster.builder().addContactPoint(cassandraIp).build();
 ////        cluster = Cluster.builder().addContactPoint("10.32.227.87").build();
