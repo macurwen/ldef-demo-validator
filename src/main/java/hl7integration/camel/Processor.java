@@ -65,7 +65,7 @@ public class Processor {
 //        String cassandraIp = getPropValues("cassandra-ip");
 //        String keyspace = getPropValues("cassandra-keyspace");
 
-        String mongoIp = getPropValues("mongo-ip");
+        String mongoIp = (System.getenv("MONGODB_SERVICE_HOST")== null) ? getPropValues("mongo-ip") : System.getenv("MONGODB_SERVICE_HOST"); ;
 //
 //        cluster = Cluster.builder().addContactPoint(cassandraIp).build();
 ////        cluster = Cluster.builder().addContactPoint("10.32.227.87").build();
@@ -128,8 +128,10 @@ public class Processor {
 
     public void publishToQueue(String msg) throws IOException {
 
-        String activemqUri = "";
-        activemqUri = getPropValues("activemq-uri");
+        String activemqHost = (System.getenv("ACTIVEMQ_SERVICE_HOST")== null) ? getPropValues("activemq-host");: System.getenv("ACTIVEMQ_SERVICE_HOST");
+        String activemqPort = (System.getenv("ACTIVEMQ_SERVICE_PORT")== null) ? getPropValues("activemq-port");: System.getenv("ACTIVEMQ_SERVICE_PORT");
+
+        String activemqUri = "tcp://" + activemqHost + ":" + activemqPort;
 
         // create sender
         ActiveMQProducer producer = new ActiveMQProducer(activemqUri, "admin", "admin");
