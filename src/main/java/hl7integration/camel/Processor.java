@@ -128,8 +128,8 @@ public class Processor {
 
     public void publishToQueue(String msg) throws IOException {
 
-        String activemqHost = (System.getenv("ACTIVEMQ_SERVICE_HOST")== null) ? getPropValues("activemq-host");: System.getenv("ACTIVEMQ_SERVICE_HOST");
-        String activemqPort = (System.getenv("ACTIVEMQ_SERVICE_PORT")== null) ? getPropValues("activemq-port");: System.getenv("ACTIVEMQ_SERVICE_PORT");
+        String activemqHost = (System.getenv("ACTIVEMQ_SERVICE_HOST")== null) ? getPropValues("activemq-host") : System.getenv("ACTIVEMQ_SERVICE_HOST");
+        String activemqPort = (System.getenv("ACTIVEMQ_SERVICE_PORT")== null) ? getPropValues("activemq-port") : System.getenv("ACTIVEMQ_SERVICE_PORT");
 
         String activemqUri = "tcp://" + activemqHost + ":" + activemqPort;
 
